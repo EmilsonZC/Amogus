@@ -1,0 +1,102 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _01Postava
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            IZbran zbran = new Hulka();
+            Postava carodej = new Carodej();
+            carodej.NastavZbran(zbran);
+            carodej.Zobraz();
+            carodej.Bojuj();
+            Console.ReadKey();
+        }
+    }
+
+    public class Postava
+    {
+        protected IZbran zbran;
+
+        public virtual void Zobraz()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual void Bojuj()
+        {
+            zbran.Pouzij();
+        }
+
+        public virtual void NastavZbran(IZbran zbran)
+        {
+            this.zbran = zbran;
+        }
+    }
+
+    public class Kral : Postava
+    {
+    }
+
+    public class Kralovna : Postava
+    {
+    }
+
+    public class Carodej : Postava
+    {
+        public override void Zobraz()
+        {
+            Console.WriteLine("Jsem carodej");
+        }
+    }
+
+    public class Mec : IZbran
+    {
+        public void Zobraz()
+        {
+            Console.WriteLine("Bojuji kouzelnym mecem");
+        }
+
+        public void Pouzij()
+        {
+            Console.WriteLine("Kouzelny mec");
+        }
+    }
+
+    public class Kopi : IZbran
+    {
+        public void Pouzij()
+        {
+            Console.WriteLine("Bojuji kouzelnym kopim");
+        }
+
+        public void Zobraz()
+        {
+            Console.WriteLine("Kouzelne kopi");
+        }
+    }
+
+    public class Hulka : IZbran
+    {
+        public void Pouzij()
+        {
+            Console.WriteLine("Bojuji kouzelnou hulkou");
+        }
+
+        public void Zobraz()
+        {
+            Console.WriteLine("Zbran typu kouzelna hulka");
+        }
+    }
+
+    public interface IZbran
+    {
+        void Zobraz();
+        void Pouzij();
+    }
+}
