@@ -1,0 +1,238 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Barva
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
+
+    public class MyColor
+    {
+        public string Name
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public HSVColor HSV
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public RGBColor RGB
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public HSLColor HSL
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+    }
+
+    public class HSVColor
+    {
+        public int Brightness
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public int Hue
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public int Saturatrion
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+    }
+
+    public class RGBColor
+    {
+        private double red;
+
+        private double green;
+
+        private double blue;
+
+        public int Blue
+        {
+            get
+            {
+                return ColorDoubleToInt(blue);
+            }
+
+            
+        }
+
+        public int Green
+        {
+            get
+            {
+                return ColorDoubleToInt(green);
+            }
+
+            
+        }
+
+        public int Red
+        {
+            get
+            {
+                return ColorDoubleToInt(red);
+            }
+
+          
+        }
+
+        public string Hexadecimal
+        {
+            get
+            {
+                return RGBToHexadecimal();
+            }
+
+           
+        }
+
+        public String RGBToHexadecimal()
+        {//0..1; 0..1; 0..1 => #FFEEDD //0..255; 0..255; 0..255 => #FFEEDD
+
+            string result = "#";
+
+            result += DecToHex(Red)
+                + DecToHex(Green)
+                + DecToHex(Blue);
+
+            return result;
+
+        }
+
+        private string DecToHex(int color)
+        {//0..255 => "00".."FF
+            int toCislo = 4;
+        }
+
+        public double ColorIntToDouble(int color)
+        {
+            double colorDouble = color;
+            return colorDouble / 255;
+           
+            
+        }
+
+        public int ColorDoubleToInt(double color)
+        {
+           
+
+            return (int)(color * 255);
+        }
+
+        public void SetColor(double red, double green, double blue)
+        {
+            red = this.red;
+            green = this.green;
+            blue = this.blue;
+        }
+
+        public void SetColor(int red, int green, int blue)
+        {
+            SetColor(ColorIntToDouble(red), ColorIntToDouble(green), ColorIntToDouble(blue));
+        }
+    }
+
+    public class HSLColor
+    {
+        public int Hue
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public int Lightness
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public int Saturation
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+    }
+}
